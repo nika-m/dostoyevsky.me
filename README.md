@@ -2,4 +2,4 @@
 Random Dostoyevsky Quotes
 
 ## Live Site 
-http://www.dostoyevsky.me/
+http://www.dostoyevsky.me
