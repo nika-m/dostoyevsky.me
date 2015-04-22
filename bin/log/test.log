@@ -1,0 +1,1166 @@
+  [1m[36m (120.1ms)[0m  [1mDROP DATABASE IF EXISTS "dostoyevsky_me_test"[0m
+  [1m[35m (421.4ms)[0m  CREATE DATABASE "dostoyevsky_me_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.2ms)[0m  CREATE TABLE "admins" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp, "updated_at" timestamp, "display_name" character varying(255)) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX  "index_admins_on_email" ON "admins" USING btree ("email")[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX  "index_admins_on_reset_password_token" ON "admins" USING btree ("reset_password_token")
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "quotes" ("id" serial primary key, "text" character varying(255), "author" character varying(255), "source" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141205173856')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141204194215')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141205164738')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 7ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.3ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 8ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.4ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 9ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.2ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 7ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.4ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 8ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.3ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 8ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as JSON
+  [1m[36m (0.3ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.2ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 7ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as JSON
+  [1m[36m (0.6ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.3ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 8ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as JSON
+  [1m[36m (0.3ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.2ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 7ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as JSON
+  [1m[36m (0.3ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.3ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 7ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by QuotesController#random as JSON
+  [1m[36m (0.4ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.2ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 7ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as JSON
+  [1m[36m (0.6ms)[0m  [1mSELECT MIN("quotes"."id") AS min_id FROM "quotes"[0m
+  [1m[35m (0.3ms)[0m  SELECT MAX("quotes"."id") AS max_id FROM "quotes"
+Completed 500 Internal Server Error in 9ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by QuotesController#random as JSON
+  [1m[36mQuote Load (0.3ms)[0m  [1mSELECT  "quotes".* FROM "quotes"  WHERE "quotes"."id" = $1 LIMIT 1[0m  [["id", 6]]
+Completed 404 Not Found in 16ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by QuotesController#random as JSON
+  [1m[36mQuote Load (0.3ms)[0m  [1mSELECT  "quotes".* FROM "quotes"  WHERE "quotes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 10ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:14:53.241215"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:14:53.241215"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.2ms)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:15:49.531023"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:15:49.531023"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:16:10.301175"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:16:10.301175"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.3ms)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:17:41.843966"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:17:41.843966"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.2ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:18:12.895889"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:18:12.895889"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.2ms)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:42:13.711958"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:42:13.711958"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.2ms)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:45:01.117777"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:45:01.117777"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.3ms)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-03-30 21:45:01.142138"], ["source", "His Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-03-30 21:45:01.142138"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:46:07.162273"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:46:07.162273"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.3ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-03-30 21:46:07.184867"], ["source", "His Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-03-30 21:46:07.184867"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 500 Internal Server Error in 0ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 21:46:41.155007"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 21:46:41.155007"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.3ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 22:11:52.751629"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 22:11:52.751629"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.2ms)
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-03-30 22:12:43.302239"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-03-30 22:12:43.302239"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+  Rendered quotes/random.json.jbuilder (0.3ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-04-22 14:43:58.251663"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-04-22 14:43:58.251663"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-04-22 14:44:17.466738"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-04-22 14:44:17.466738"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-04-22 14:45:34.951197"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-04-22 14:45:34.951197"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-04-22 14:48:03.629975"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-04-22 14:48:03.629975"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-04-22 14:48:16.426607"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-04-22 14:48:16.426607"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (3.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'miller.nika@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "admins" ("created_at", "display_name", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-04-22 14:48:16.469139"], ["display_name", "Ника"], ["email", "miller.nika@gmail.com"], ["encrypted_password", "$2a$04$XiRs8A2iGqrN6rHJl0lN0enRAAzzN6TpO5iPvf52BXkafZUbxGYJO"], ["updated_at", "2015-04-22 14:48:16.469139"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-04-22 14:48:49.391746"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-04-22 14:48:49.391746"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'miller.nika@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "admins" ("created_at", "display_name", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-04-22 14:48:49.425635"], ["display_name", "Ника"], ["email", "miller.nika@gmail.com"], ["encrypted_password", "$2a$04$ILad08nXgRiO7QISAchN3uSKZ9BgecD/OGmo0eCbxPohBlXwdG7Ia"], ["updated_at", "2015-04-22 14:48:49.425635"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "my dog"], ["created_at", "2015-04-22 14:49:50.566044"], ["source", "his butt"], ["text", "this is a test"], ["updated_at", "2015-04-22 14:49:50.566044"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 14:49:50.581586"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 14:49:50.581586"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 14:55:49.181442"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 14:55:49.181442"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 14:55:49.195957"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 14:55:49.195957"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 14:57:04.946651"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 14:57:04.946651"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 14:57:04.964138"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 14:57:04.964138"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 3ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 14:57:53.719561"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 14:57:53.719561"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 14:57:53.735866"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 14:57:53.735866"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 3ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 14:58:54.774351"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 14:58:54.774351"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 14:58:54.791465"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 14:58:54.791465"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 14:59:15.890216"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 14:59:15.890216"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 14:59:15.907298"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 14:59:15.907298"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 3ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:04:13.892588"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:04:13.892588"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 15:04:13.909513"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 15:04:13.909513"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 3ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:05:42.882082"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:05:42.882082"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 15:05:42.898587"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 15:05:42.898587"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 4ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:06:21.040469"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:06:21.040469"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:06:21.056005"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:06:21.056005"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 4ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:06:50.999641"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:06:50.999641"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:06:51.014179"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:06:51.014179"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 3ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:07:15.320557"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:07:15.320557"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:07:15.336080"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:07:15.336080"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 200 OK in 3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:07:39.635653"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:07:39.635653"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 15:07:39.649702"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 15:07:39.649702"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:08:12.296447"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:08:12.296447"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 15:08:12.313284"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 15:08:12.313284"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:08:38.663944"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:08:38.663944"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 15:08:38.680197"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 15:08:38.680197"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:08:56.264879"], ["source", "The Idiot"], ["text", "Beauty will save the world"], ["updated_at", "2015-04-22 15:08:56.264879"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Forrest Gump"], ["created_at", "2015-04-22 15:08:56.279742"], ["source", "Momma"], ["text", "Life is like a box of chocolates."], ["updated_at", "2015-04-22 15:08:56.279742"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:10:23.730622"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:10:23.730622"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:10:33.639510"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:10:33.639510"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#index as HTML
+  Rendered quotes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:12:32.039923"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:12:32.039923"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:13:27.425111"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:13:27.425111"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:13:41.370159"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:13:41.370159"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:14:27.605788"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:14:27.605788"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:14:40.469910"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:14:40.469910"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:15:23.425008"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:15:23.425008"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:15:45.379515"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:15:45.379515"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:17:00.177570"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:17:00.177570"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:17:13.231702"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:17:13.231702"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:18:31.403948"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:18:31.403948"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:20:37.745809"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:20:37.745809"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:21:50.544959"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:21:50.544959"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as HTML
+  Rendered quotes/random.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:21:50.568115"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:21:50.568115"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:22:36.399600"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:22:36.399600"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as HTML
+  Rendered quotes/random.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:22:36.423824"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:22:36.423824"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:23:08.304484"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:23:08.304484"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:23:08.322372"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:23:08.322372"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:23:21.986092"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:23:21.986092"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:23:22.006933"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:23:22.006933"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:24:12.305963"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:24:12.305963"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:24:53.541988"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:24:53.541988"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:25:44.834860"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:25:44.834860"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:26:05.194141"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:26:05.194141"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:26:43.037676"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:26:43.037676"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:26:43.059313"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:26:43.059313"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:27:03.044830"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:27:03.044830"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:27:03.091253"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:27:03.091253"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:27:54.518302"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:27:54.518302"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:28:53.758300"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:28:53.758300"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:28:53.777799"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:28:53.777799"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:30:14.835267"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:30:14.835267"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:30:14.852987"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:30:14.852987"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:32:54.440308"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:32:54.440308"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:32:54.489012"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:32:54.489012"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:33:09.150185"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:33:09.150185"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:33:09.197785"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:33:09.197785"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:33:23.722214"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:33:23.722214"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:33:23.742302"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:33:23.742302"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#random as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:33:45.841602"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:33:45.841602"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:35:50.905092"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:35:50.905092"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:35:50.959208"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:35:50.959208"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 3ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Boris Pasternak"], ["created_at", "2015-04-22 15:35:50.980627"], ["source", "Unknown"], ["text", "Man is born to live and not to prepare for life."], ["updated_at", "2015-04-22 15:35:50.980627"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"93"}
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by QuotesController#new as HTML
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by QuotesController#create as HTML
+  Parameters: {"quote"=>{"text"=>"Man is born to live and not to prepare for life.", "author"=>"Boris Pasternak", "source"=>"Unknown"}}
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by QuotesController#create as HTML
+  Parameters: {"quote"=>{"text"=>"Man is born to live and not to prepare for life.", "author"=>"Boris Pasternak", "source"=>"Unknown"}}
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by QuotesController#create as HTML
+  Parameters: {"quote"=>nil}
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by QuotesController#create as HTML
+  Parameters: {"quote"=>nil}
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Boris Pasternak"], ["created_at", "2015-04-22 15:35:51.005258"], ["source", "Unknown"], ["text", "Man is born to live and not to prepare for life."], ["updated_at", "2015-04-22 15:35:51.005258"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Boris Pasternak"], ["created_at", "2015-04-22 15:35:51.007577"], ["source", "Unknown"], ["text", "Man is born to live and not to prepare for life."], ["updated_at", "2015-04-22 15:35:51.007577"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#update as HTML
+  Parameters: {"quote"=>{"text"=>"Man is born to live and not to prepare for life.", "author"=>"Boris Pasternak", "source"=>"Unknown"}, "id"=>"95"}
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Boris Pasternak"], ["created_at", "2015-04-22 15:35:51.013438"], ["source", "Unknown"], ["text", "Man is born to live and not to prepare for life."], ["updated_at", "2015-04-22 15:35:51.013438"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#update as HTML
+  Parameters: {"quote"=>{"text"=>"Man is born to live and not to prepare for life.", "author"=>"Boris Pasternak", "source"=>"Unknown"}, "id"=>"96"}
+Completed 401 Unauthorized in 0ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Boris Pasternak"], ["created_at", "2015-04-22 15:35:51.019044"], ["source", "Unknown"], ["text", "Man is born to live and not to prepare for life."], ["updated_at", "2015-04-22 15:35:51.019044"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#update as HTML
+  Parameters: {"quote"=>nil, "id"=>"97"}
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Boris Pasternak"], ["created_at", "2015-04-22 15:35:51.023690"], ["source", "Unknown"], ["text", "Man is born to live and not to prepare for life."], ["updated_at", "2015-04-22 15:35:51.023690"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#update as HTML
+  Parameters: {"quote"=>nil, "id"=>"98"}
+Completed 401 Unauthorized in 0ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Boris Pasternak"], ["created_at", "2015-04-22 15:35:51.028998"], ["source", "Unknown"], ["text", "Man is born to live and not to prepare for life."], ["updated_at", "2015-04-22 15:35:51.028998"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Boris Pasternak"], ["created_at", "2015-04-22 15:35:51.035458"], ["source", "Unknown"], ["text", "Man is born to live and not to prepare for life."], ["updated_at", "2015-04-22 15:35:51.035458"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#destroy as HTML
+  Parameters: {"id"=>"100"}
+Completed 401 Unauthorized in 0ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:36:35.291386"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:36:35.291386"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:36:35.311184"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:36:35.311184"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 3ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:37:04.651939"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:37:04.651939"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:37:04.671170"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:37:04.671170"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 3ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:38:14.378697"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:38:14.378697"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#random as JSON
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:38:23.483974"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:38:23.483974"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#index as HTML
+Completed 401 Unauthorized in 5ms
+  Rendered text template (0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:38:39.350210"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:38:39.350210"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#index as HTML
+  Rendered quotes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:39:31.672150"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:39:31.672150"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by QuotesController#index as HTML
+  Parameters: {"login"=>"admin"}
+Completed 401 Unauthorized in 6ms
+  Rendered text template (0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("author", "created_at", "source", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "Fyodor Dostoyevsky"], ["created_at", "2015-04-22 15:42:26.097597"], ["source", "The Idiot"], ["text", "Beauty will save the world."], ["updated_at", "2015-04-22 15:42:26.097597"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
